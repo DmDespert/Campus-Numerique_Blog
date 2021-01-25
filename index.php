@@ -1,7 +1,5 @@
 <?php
 
-echo "hello world";
-
 //----FRONT CONTROLER----//
 
 //Initialisation de la session Php (création du cookie)
