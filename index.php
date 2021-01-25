@@ -24,7 +24,7 @@ if ($urlIsSet === true) {
         $isRoad = 'action/404.php';
     }
 } else {
-    header("Location: /index.php?action=actionname",TRUE,301);
+    header("Location: /config/database.php",TRUE,301);
 }
 
 ob_start();
