@@ -2,15 +2,18 @@
 
     //----FRONT CONTROLER----//
 
-    //Initialisation de la session Php (création du cookie)
-    session_start();
+    //Affiches toutes les erreurs php
+    error_reporting(E_ALL);
+    ini_set('display_errors', true);
 
+    //GET et SANITIZE l'URL
     $url = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
     $urlIsSet = isset($url);
 
     //Dictionnaire des routes
     $road = [
-        'homeController' => 'app/controllers/homeController.php',
+        'home' => 'app/controllers/homeController.php',
+        '404' => 'pages/404.php',
     ];
 
     //Test des routes du Front-Controler
@@ -18,20 +21,15 @@
         if (array_key_exists($url, $road)) {
             $isRoad = $road[$url];
         } else {
-            $isRoad = $road['homeController'];
+            $isRoad = $road['home'];
         }
     } else {
-        $isRoad = $road['homeController'];
+        $isRoad = $road['home'];
     }
 
     ob_start();
-    require('config/database.php');
     require $isRoad;
-    //require('elements/footer.php');
     $render = ob_get_contents();
     ob_end_clean();
 
     echo $render;
-
-?>
-

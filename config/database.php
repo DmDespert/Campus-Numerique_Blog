@@ -1,7 +1,7 @@
 <?php
     //ESSAIES :
     try {
-        $db = new PDO(    'mysql:host=localhost;dbname=blog;charset=utf8mb4',
+        $db = new PDO(    "mysql:host=localhost;dbname=blog;charset=utf8mb4",
             'dmdespert',
             'fwjhxey6h',
 
@@ -14,7 +14,5 @@
         );
     //AUTREMENT, TU CAPTURES VERS L'ERREUR
     } catch (PDOException $e) {
-        echo 'Échec lors de la connexion : ' . $e->getMessage();
+        echo "Échec lors de la connexion : " . $e->getMessage();
     }
-
-?>
