@@ -8,12 +8,14 @@
 
     //GET et SANITIZE l'URL
     $url = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_ENCODED);
     $urlIsSet = isset($url);
 
     //Dictionnaire des routes
     $road = [
         'home' => 'app/controllers/homeController.php',
-        '404' => 'pages/404.php',
+        'blogpost' => 'app/controllers/blogPostController.php',
+        '404' => 'ressources/views/404.tpl',
     ];
 
     //Test des routes du Front-Controler
@@ -21,7 +23,7 @@
         if (array_key_exists($url, $road)) {
             $isRoad = $road[$url];
         } else {
-            $isRoad = $road['home'];
+            $isRoad = $road['404'];
         }
     } else {
         $isRoad = $road['home'];

@@ -2,6 +2,6 @@
     require('config/database.php');
     require('app/persistences/blogPostData.php');
 
-    $isPost = lastBlogPosts($db);
+    $lastsPosts = lastBlogPosts($db);
 
-    include('ressources/views/home.tpl.php');
+    include('ressources/views/home.tpl');
