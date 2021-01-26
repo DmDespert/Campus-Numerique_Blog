@@ -1,7 +1,7 @@
 <?php
     echo "hello world";
+    require('app/persistences/blogPostData.php');
+    $isPost = lastBlogPosts($db);
 
-    function lastBlogPosts (PDO $getArray) : array {
-        return [];
-    }
-?>
+    var_dump($isPost);
+    ?>

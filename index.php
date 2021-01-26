@@ -18,11 +18,10 @@
         if (array_key_exists($url, $road)) {
             $isRoad = $road[$url];
         } else {
-            $url = '404';
-            $isRoad = 'action/404.php';
+            $isRoad = $road['homeController'];
         }
     } else {
-        header("Location: index.php",TRUE,301);
+        $isRoad = $road['homeController'];
     }
 
     ob_start();
