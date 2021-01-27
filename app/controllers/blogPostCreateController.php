@@ -2,24 +2,29 @@
     require('config/database.php');
     require('app/persistences/blogPostData.php');
 
-    //Récupération des variables en POST - Create Post
+    //---CREATE POST
+
+    //Récupération des variables en POST - CREATE POST
     $addPost = [
         $createPostTitle = trim(filter_input(INPUT_POST, 'postTitle', FILTER_SANITIZE_STRING)),
         $createPostText = trim(filter_input(INPUT_POST, 'postText', FILTER_SANITIZE_STRING)),
-        $postFirstDate = trim(filter_input(INPUT_POST, 'postFirstDate', FILTER_SANITIZE_STRING)),
-        $postEndDate = trim(filter_input(INPUT_POST, 'postEndDate', FILTER_SANITIZE_STRING)),
-        $postImportance = filter_input(INPUT_POST, 'postImportance', FILTER_SANITIZE_NUMBER_INT),
+        $createPostFirstDate = trim(filter_input(INPUT_POST, 'postFirstDate', FILTER_SANITIZE_STRING)),
+        $createPostEndDate = trim(filter_input(INPUT_POST, 'postEndDate', FILTER_SANITIZE_STRING)),
+        $createPostImportance = filter_input(INPUT_POST, 'postImportance', FILTER_SANITIZE_NUMBER_INT),
+        $createPostAuthor = filter_input(INPUT_POST, 'postImportance', FILTER_SANITIZE_NUMBER_INT),
     ];
 
-    //Non validité générale du formulaire
+    //Validée ou non validitée générale du formulaire de création d'article - CREATE POST
     $isNotValid = false;
+    $isAuthors = getAuthors($db);
 
-    if(!empty($_POST['submit'])) {
-        if(empty($createPostTitle) || empty($createPostText) || empty($postFirstDate) || empty($postEndDate) || empty($postImportance)) {
+    if(isset($_POST['submit'])) {
+        if(empty($createPostTitle) || empty($createPostText) || empty($createPostFirstDate) || empty($createPostEndDate) || empty($createPostImportance) || empty($createPostAuthor)) {
             $isNotValid = true;
+            echo "Création d'article incomplète : veuillez respecter les champs.";
         }
         if($isNotValid === false) {
-            $requete = "INSERT INTO posts(id, title, text, first_date, end_date, important) VALUES('','$createPostTitle','$createPostText','$postFirstDate','$postEndDate','$postImportance')";
+            blogPostCreate($db, $createPostTitle, $createPostText, $createPostFirstDate, $createPostEndDate, $createPostImportance, $createPostAuthor);
         }
     }
 

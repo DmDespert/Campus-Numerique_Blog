@@ -3,7 +3,7 @@
 ?>
 
 <main>
-    <form action="app/controllers/blogPostCreateController.php" method="POST">
+    <form action="index.php?action=blogpostadd" method="POST">
         <div>
             <label for="postTitle">Titre de votre article</label>
             <input type="text" id="postTitle" name="postTitle">
@@ -22,11 +22,16 @@
         </div>
         <label for="postImportance">Importance de l'article</label>
         <select name="postImportance" id="postImportance">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <select name="authors" id="authors">
+            <?php foreach ($isAuthors as $row) :?>
+                <option value="<?=$row["id"]?>"><?=$row["nickname"]?></option>
+            <?php endforeach; ?>
         </select>
         <button id="reset" type="reset" value="Tout effacer">Effacer</button>
         <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
