@@ -2,15 +2,15 @@
     include('ressources/views/header.tpl');
 ?>
 
-<body>
-    <form action="" method="POST">
+<main>
+    <form action="app/controllers/blogPostCreateController.php" method="POST">
         <div>
-            <label for="articleTitle">Titre de votre article</label>
-            <input type="text" id="articleTitle" name="articleTitle">
+            <label for="postTitle">Titre de votre article</label>
+            <input type="text" id="postTitle" name="postTitle">
         </div>
         <div>
-            <label for="articleText">Votre article</label>
-            <textarea type="text" id="articleText" name="articleText"></textarea>
+            <label for="postText">Votre article</label>
+            <textarea type="text" id="postText" name="postText"></textarea>
         </div>
         <div>
             <label for="postFirstDate">Date de publication</label>
@@ -28,8 +28,10 @@
             <option>4</option>
             <option>5</option>
         </select>
+        <button id="reset" type="reset" value="Tout effacer">Effacer</button>
+        <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
     </form>
-</body>
+</main>
 
 <?php
     include('ressources/views/footer.tpl');

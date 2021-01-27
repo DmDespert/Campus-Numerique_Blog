@@ -2,7 +2,7 @@
 
     //----FRONT CONTROLER----//
 
-    //Affiches toutes les erreurs php
+    //Affiche toutes les erreurs php /!--A RETIRER LORS DE LA MISE EN LIGNE--/!
     error_reporting(E_ALL);
     ini_set('display_errors', true);
 
@@ -15,7 +15,7 @@
     $road = [
         'home' => 'app/controllers/homeController.php',
         'blogpost' => 'app/controllers/blogPostController.php',
-        'blogpostnadd' => 'app/controllers/',
+        'blogpostadd' => 'app/controllers/blogPostCreateController.php',
         '404' => 'ressources/views/404.tpl',
     ];
 
