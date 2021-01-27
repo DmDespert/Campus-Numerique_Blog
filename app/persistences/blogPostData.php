@@ -14,3 +14,10 @@
         $resultPost = $isDB->query("SELECT text, nickname FROM comments INNER JOIN authors ON comments.authors_id = authors.id WHERE posts_id = $idPost");
         return $resultPost->fetch(PDO::FETCH_ASSOC);
     }
+
+    /*
+    function blogPostCreate(PDO $isDB, --) {
+
+
+    }
+    */

@@ -15,6 +15,7 @@
     $road = [
         'home' => 'app/controllers/homeController.php',
         'blogpost' => 'app/controllers/blogPostController.php',
+        'blogpostnadd' => 'app/controllers/',
         '404' => 'ressources/views/404.tpl',
     ];
 
