@@ -1,5 +1,5 @@
 <?php
-    include('ressources/views/header.tpl');
+
 ?>
 
 <main>
@@ -37,7 +37,3 @@
         <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
     </form>
 </main>
-
-<?php
-    include('ressources/views/footer.tpl');
-?>

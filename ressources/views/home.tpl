@@ -1,5 +1,5 @@
 <?php
-    include('ressources/views/header.tpl');
+
 ?>
 
 <main>
@@ -17,7 +17,3 @@
         }
     ?>
 </main>
-
-<?php
-    include('ressources/views/footer.tpl');
-?>

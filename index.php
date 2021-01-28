@@ -1,10 +1,18 @@
 <?php
 
-    //---FRONT CONTROLER---//
-
-    //Affiche toutes les erreurs php /!--A RETIRER LORS DE LA MISE EN LIGNE--/!
+    //---FONCTION DEBUG
     error_reporting(E_ALL);
-    ini_set('display_errors', true);
+    ini_set('display_errors',true);
+    ini_set('html_errors',false);
+    ini_set('display_startup_errors',true);
+    ini_set('log_errors',false);
+
+    function debug($var) {
+        highlight_string("<?php\n" . var_export($var, true) . ";\n?>");
+    }
+    //Commande de debug avec variable à ajouter :: debug($votre_variable);
+
+    //---FRONT CONTROLER---//
 
     //Variables SANITIZING (URL)
     $url = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
@@ -21,6 +29,21 @@
         '404' => 'ressources/views/404.tpl',
     ];
 
+    //Personnalisation des titres & descriptions des pages
+    $pagesMetaTitles = [
+        'home' => $metaTitle = 'Accueil - BLOG',
+        'blogpost' => $metaTitle = ' - BLOG',
+        'blogpostadd' => $metaTitle = 'Ajouter un article - BLOG',
+        '404'     => $metaTitle = '404 - BLOG'
+    ];
+
+    $pagesMetaDescriptions = [
+        'home' => $metaDescription = "Bienvenue sur le blog template, ceci est la page d'accueil !",
+        'blogpost' => $metaDescription = "",
+        'blogpostadd' => $metaDescription = "Ajout d'un article au blog",
+        '404'     => $metaDescription = "Page d'erreur du site internet"
+    ];
+
     //Test des routes du Front-Controler - ROADS
     if ($urlIsSet === true) {
         if (array_key_exists($url, $road)) {
@@ -32,9 +55,13 @@
         $isRoad = $road['home'];
     }
 
-    //Temporisation de sortie
+    //Temporisation de sortie - ROADS
     ob_start();
+    require_once('config/database.php');
+    require('app/persistences/blogPostData.php');
+    include('ressources/views/header.tpl');
     require $isRoad;
+    include('ressources/views/footer.tpl');
     $render = ob_get_contents();
     ob_end_clean();
 

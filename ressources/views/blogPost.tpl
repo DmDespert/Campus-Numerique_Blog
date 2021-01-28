@@ -1,5 +1,4 @@
 <?php
-    include('ressources/views/header.tpl');
     $title = $isPost["title"];
     $text = $isPost["text"];
     $author = $isPost["nickname"];
@@ -27,7 +26,3 @@
         }
     ?>
 </main>
-
-<?php
-    include('ressources/views/footer.tpl');
-?>

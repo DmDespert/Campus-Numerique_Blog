@@ -1,6 +1,4 @@
 <?php
-    require('config/database.php');
-    require('app/persistences/blogPostData.php');
 
     //---CREATE POST
 
@@ -28,4 +26,4 @@
         }
     }
 
-    include('ressources/views/blogPostCreate.tpl.php');
+    include('ressources/views/blogPostCreate.tpl');
