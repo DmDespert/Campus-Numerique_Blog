@@ -1,6 +1,6 @@
 <?php
 
-    //---CREATE POST
+    //---CREATE POST---//
 
     //Récupération des variables en POST - CREATE POST
     $addPost = [
@@ -9,7 +9,7 @@
         $createPostFirstDate = trim(filter_input(INPUT_POST, 'postFirstDate', FILTER_SANITIZE_STRING)),
         $createPostEndDate = trim(filter_input(INPUT_POST, 'postEndDate', FILTER_SANITIZE_STRING)),
         $createPostImportance = filter_input(INPUT_POST, 'postImportance', FILTER_SANITIZE_NUMBER_INT),
-        $createPostAuthor = filter_input(INPUT_POST, 'postImportance', FILTER_SANITIZE_NUMBER_INT),
+        $createPostAuthor = filter_input(INPUT_POST, 'postAuthor', FILTER_SANITIZE_NUMBER_INT),
     ];
 
     //Validée ou non validitée générale du formulaire de création d'article - CREATE POST

@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <main>
     <form action="index.php?action=blogpostadd" method="POST">
         <div>
@@ -28,12 +24,12 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <select name="authors" id="authors">
+        <select name="postAuthor" id="postAuthor">
             <?php foreach ($isAuthors as $row) :?>
-                <option value="<?=$row['id']?>"><?=$row["nickname"]?>"></option>
+                <option value="<?=$row['id']?>"><?=$row["nickname"]?></option>
             <?php endforeach; ?>
         </select>
         <button id="reset" type="reset" value="Tout effacer">Effacer</button>
-        <!--button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button-->
+        <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
     </form>
 </main>

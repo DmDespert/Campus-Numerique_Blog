@@ -1,12 +1,3 @@
-<?php
-    $title = $isPost["title"];
-    $text = $isPost["text"];
-    $author = $isPost["nickname"];
-
-    $textComment = $isPostComments["text"];
-    $authorComment = $isPostComments["nickname"];
-?>
-
 <main>
     <?php if (!empty($isPost)): ?>
         <h2><?=$title?></h2>
@@ -23,4 +14,6 @@
     <?php else: ?>
         <p>Pas de commentaires à afficher, soyez le premier à en écrire un.</p>
     <?php endif; ?>
+    <p><a href="index.php?action=home">Retour à l'accueil</a></p>
+    <p><a href="index.php?action=blogpostmodify&id=<?=$id?>">Modifier l'article</a></p>
 </main>
