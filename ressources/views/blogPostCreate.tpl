@@ -30,10 +30,10 @@
         </select>
         <select name="authors" id="authors">
             <?php foreach ($isAuthors as $row) :?>
-                <option value="<?=$row["id"]?>"><?=$row["nickname"]?></option>
+                <option value="<?=$row['id']?>"><?=$row["nickname"]?>"></option>
             <?php endforeach; ?>
         </select>
         <button id="reset" type="reset" value="Tout effacer">Effacer</button>
-        <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
+        <!--button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button-->
     </form>
 </main>

@@ -1,19 +1,9 @@
-<?php
-
-?>
-
 <main>
-    <?php
-        //Affiche les articles dans le viewer - DISPLAY LAST 10 POSTS
-        if (!empty($lastsPosts)) {
-            foreach ($lastsPosts as $row) {
-                echo "<h2>" . $row["title"] . "</h2>";
-                echo "<p>" . $row["text"] . "</p>";
-                echo "<p> Écris par " . $row["nickname"] . "</p>";
-                echo "<p> En date du " . $row["first_date"] . "</p>";
-            }
-        } else {
-            echo "Il n'y a pas d'articles aujourd'hui, revenez dans un siècle";
-        }
-    ?>
+    <?php foreach ($lastsPosts as $row) :?>
+        <h2><?=$row["title"]?></h2>
+        <p><?=$row["text"]?></p>
+        <p>Écris par <?=$row["nickname"]?></p>
+        <p>En date du <?=$row["first_date"]?></p>
+        <a href="index.php?action=blogpost&id=<?=$row['id']?>">En savoir plus</a>
+    <?php endforeach; ?>
 </main>

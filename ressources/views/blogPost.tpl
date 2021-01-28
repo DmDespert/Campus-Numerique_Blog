@@ -8,21 +8,19 @@
 ?>
 
 <main>
-    <?php
-        if (!empty($isPost)) {
-            echo "<h2>" . $title . "</h2>";
-            echo "<p>" . $text . "</p>";
-            echo "<p> Écris par " . $author . "</p>";
-        } else {
-            echo "Article inaccessible ou introuvable !";
-        }
+    <?php if (!empty($isPost)): ?>
+        <h2><?=$title?></h2>
+        <p><?=$text?></p>
+        <p>Écris par <?=$author?></p>
+    <?php else: ?>
+        <p>Article inaccessible ou introuvable !</p>
+    <?php endif; ?>
 
-        if (!empty($isPostComments)) {
-            echo "<p> Commentaires sur l'article : </p>";
-            echo "<p>" . $textComment . "</p>";
-            echo "<p>" . $authorComment . "</p>";
-        } else {
-            echo "Pas de commentaires sur cet article, soyez le premier à en écrire un !";
-        }
-    ?>
+    <?php if (!empty($isPostComments)): ?>
+        <p> Commentaires sur l'article : </p>
+        <p><?=$textComment?></p>
+        <p>Écris par <?=$authorComment?></p>
+    <?php else: ?>
+        <p>Pas de commentaires à afficher, soyez le premier à en écrire un.</p>
+    <?php endif; ?>
 </main>
