@@ -8,9 +8,10 @@ $text = $isPost["text"];
 $firstDate = $isPost["first_date"];
 $endDate = $isPost["end_date"];
 $important = $isPost["important"];
+$isAuthor = $isPost["authors_id"];
 
-$formatFirstDate = date("d-m-Y", strtotime($firstDate));
-$formatEndDate = date("d-m-Y", strtotime($endDate));
+$formatFirstDate = date("Y-m-d", strtotime($firstDate));
+$formatEndDate = date("Y-m-d", strtotime($endDate));
 
 $modifyPost = [
     $modifyPostTitle = trim(filter_input(INPUT_POST, 'modifyTitle', FILTER_SANITIZE_STRING)),
@@ -22,6 +23,7 @@ $modifyPost = [
 ];
 
 $isNotValid = false;
+$isCategories = getCategories($db);
 
 if (isset($_POST['submit'])) {
     if (empty($modifyPostTitle) || empty($modifyPostText) || empty($modifyPostFirstDate) || empty($modifyPostEndDate)

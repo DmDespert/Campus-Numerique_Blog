@@ -26,9 +26,15 @@
         </select>
         <select name="modifyAuthor" id="modifyAuthor">
             <?php foreach ($isAuthors as $row) :?>
-                <option value="<?=$row['id']?>"><?=$row["nickname"]?></option>
+                <option value="<?=$row['id']?>" <?= ($row['id'] == $isAuthor ? "selected" : '')?>><?=$row["nickname"]?></option>
             <?php endforeach; ?>
         </select>
+        <div>
+            <?php foreach ($isCategories as $row) :?>
+                <input type="checkbox" id="<?=$row["name"]?>" name="<?=$row["name"]?>">
+                <label for="<?=$row["name"]?>"><?=$row["name"]?></label>
+            <?php endforeach; ?>
+        </div>
         <button id="reset" type="reset" value="Tout effacer">Effacer</button>
         <button id="submit" type="submit" name="submit" value="Envoyer">Envoyer</button>
     </form>

@@ -20,6 +20,7 @@
 
     <body>
         <header>
+            <span>Titre du blog</span>
             <nav>
                 <ul>
                     <li><a href="index.php?action=home">Accueil</a></li>

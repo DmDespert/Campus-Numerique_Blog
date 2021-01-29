@@ -1,7 +1,7 @@
 <?php
 
     //---FONCTION DEBUG---//
-    /*
+
     error_reporting(E_ALL);
     ini_set('display_errors',true);
     ini_set('html_errors',false);
@@ -12,7 +12,7 @@
     function debug($var) {
         highlight_string("<?php\n" . var_export($var, true) . ";\n?>");
     }
-    */
+
     //---FRONT CONTROLER---//
 
     //Variables SANITIZING (URL)

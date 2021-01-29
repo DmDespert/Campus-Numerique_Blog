@@ -5,7 +5,7 @@
     //Affiche les 10 derniers articles à l'accueil - DISPLAY LAST 10 POSTS
     function lastBlogPosts(PDO $isDB)
     {
-        $sql = 'SELECT posts.id, posts.title, posts.text, posts.first_date , authors.nickname FROM posts 
+        $sql = 'SELECT posts.id, posts.title, posts.text, posts.first_date, authors.nickname FROM posts 
                 INNER JOIN authors ON posts.authors_id = authors.id ORDER BY posts.id DESC LIMIT 10';
         $sth = $isDB->prepare($sql);
         $sth->execute();
@@ -17,7 +17,7 @@
     //Affiche un article en fonction de son ID - DISPLAY POST (BY ID)
     function blogPostById(PDO $isDB, $idPost)
     {
-        $sql = 'SELECT posts.title, posts.text, posts.first_date, posts.end_date, posts.important, authors.nickname 
+        $sql = 'SELECT posts.title, posts.text, posts.first_date, posts.end_date, posts.important, posts.authors_id, authors.nickname 
                 FROM posts INNER JOIN authors ON posts.authors_id = authors.id WHERE posts.id = :id';
         $sth = $isDB->prepare($sql);
         $sth->bindValue(":id", $idPost, PDO::PARAM_INT);
@@ -47,6 +47,14 @@
         return $sth->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function getCategories(PDO $isDB)
+    {
+        $sql = 'SELECT categories.id, categories.name FROM categories';
+        $sth = $isDB->prepare($sql);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     //Récupère les champs de la création du formulaire, et les envoies dans la BDD - CREATE POST
     function blogPostCreate(PDO $isDB, $createPostTitle, $createPostText, $createPostFirstDate, $createPostEndDate,
                             $createPostImportance, $createPostAuthor)
@@ -62,6 +70,8 @@
         $sth->bindValue(":postAuthor", $createPostAuthor);
         $sth->execute();
     }
+
+    //---BLOGPOSTUPDATECONTROLLER---//
 
     function blogPostUpdate(PDO $isDB, $idPost, $modifyPostTitle, $modifyPostText, $modifyPostFirstDate, $modifyPostEndDate,
                             $modifyPostImportance, $modifyPostAuthor)
@@ -80,6 +90,8 @@
         $sth->execute();
     }
 
+    //---BLOGPOSTDELETECONTROLLER---//
+
     function blogPostDelete(PDO $isDB, $idPost)
     {
         $sql= 'DELETE FROM posts WHERE posts.id = :id';
@@ -87,3 +99,9 @@
         $sth->bindValue(":id", $idPost, PDO::PARAM_INT);
         $sth->execute();
     }
+    /*
+    function blogPostByCategory()
+    {
+
+    }
+    */

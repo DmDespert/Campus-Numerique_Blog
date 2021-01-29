@@ -15,6 +15,7 @@ $addPost = [
 //Validée ou non validitée générale du formulaire de création d'article - CREATE POST
 $isNotValid = false;
 $isAuthors = getAuthors($db);
+$isCategories = getCategories($db);
 
 if (isset($_POST['submit'])) {
     if (empty($createPostTitle) || empty($createPostText) || empty($createPostFirstDate) || empty($createPostEndDate)
