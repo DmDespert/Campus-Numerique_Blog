@@ -79,3 +79,11 @@
         $sth->bindValue(":modifyAuthor", $modifyPostAuthor);
         $sth->execute();
     }
+
+    function blogPostDelete(PDO $isDB, $idPost)
+    {
+        $sql= 'DELETE FROM posts WHERE posts.id = :id';
+        $sth = $isDB->prepare($sql);
+        $sth->bindValue(":id", $idPost, PDO::PARAM_INT);
+        $sth->execute();
+    }

@@ -20,14 +20,11 @@
 
     <body>
         <header>
-            <logo>Template blog</logo>
-            <div>
-                <span>Mon premier blog</span>
-            </div>
             <nav>
                 <ul>
                     <li><a href="index.php?action=home">Accueil</a></li>
                     <li><a href="index.php?action=blogpostadd">Ajouter un article</a></li>
                 </ul>
             </nav>
+            <div class="background-header"></div>
         </header>

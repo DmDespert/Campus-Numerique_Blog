@@ -16,4 +16,5 @@
     <?php endif; ?>
     <p><a href="index.php?action=home">Retour à l'accueil</a></p>
     <p><a href="index.php?action=blogpostmodify&id=<?=$id?>">Modifier l'article</a></p>
+    <p><a href="index.php?action=blogpostdelete&id=<?=$id?>">Supprimer l'article</a></p>
 </main>
