@@ -37,5 +37,4 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
 include('ressources/views/blogPostUpdate.tpl');

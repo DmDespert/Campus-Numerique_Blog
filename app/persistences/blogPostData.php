@@ -99,9 +99,15 @@
         $sth->bindValue(":id", $idPost, PDO::PARAM_INT);
         $sth->execute();
     }
-    /*
-    function blogPostByCategory()
-    {
 
+    function blogPostByCategory(PDO $isDB, $category)
+    {
+        $sql = 'SELECT posts.title, categories.name FROM categories_has_posts 
+                INNER JOIN categories ON categories_has_posts.categories_id = categories.id 
+                INNER JOIN posts ON categories_has_posts.posts_id = posts.id 
+                WHERE categories.name = :name';
+        $sth = $isDB->prepare($sql);
+        $sth->bindValue(":name", $category);
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
     }
-    */

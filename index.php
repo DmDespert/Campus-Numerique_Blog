@@ -16,8 +16,8 @@
     //---FRONT CONTROLER---//
 
     //Variables SANITIZING (URL)
-    $url = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_ENCODED);
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_ENCODED);
+    $url = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
     $urlIsSet = isset($url);
 
     //---ROADS---//
@@ -29,6 +29,7 @@
         'blogpostadd' => 'app/controllers/blogPostCreateController.php',
         'blogpostmodify' => 'app/controllers/blogPostModifyController.php',
         'blogpostdelete' => 'app/controllers/blogPostDeleteController.php',
+        'blogpostcategory' => 'app/controllers/blogPostCategoryController.php',
         '404' => 'ressources/views/404.tpl',
     ];
 
